@@ -1,0 +1,18 @@
+$blue: blue;
+$lightgreen: lightgreen;
+$lightyellow: lightyellow;
+$red: red;
+
+h1 {
+    color:$red;
+    background-color: $lightyellow;
+}
+
+h2 {
+    color: $blue;
+    background-color: $lightgreen;
+}
+
+p {
+    color: $red;
+}

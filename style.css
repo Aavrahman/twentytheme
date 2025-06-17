@@ -5,7 +5,7 @@ Version: 0.1
 Description: Wayyi d Theme n Aaratt n Wordpress. Degs aaratt, degs almad
 The URI: https://www.almad-wp.edu
 */
-
+/*
 @import "css/bootstrap.css";
-@import "css/bootstrap.min.css";
-@import "css/main";
+@import "css/bootstrap.min.css";    */
+@import "css/main.css";

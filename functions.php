@@ -8,8 +8,9 @@ register_nav_menus(
     )
 );
 
-function ajouter_style()
+function load_style()
 {
-    wp_enqueue_style('style', get_stylesheet_uri());
+//  wp_register_style('the_name', get_template_directory_uri() . '/css/bootstrap.min.css', array(), false, 'all'); OR
+    wp_enqueue_style('the_name', get_stylesheet_uri());
 }
-add_action('wp_enqueue_scripts', 'ajouter_style');
+add_action('wp_enqueue_scripts', 'load_style');

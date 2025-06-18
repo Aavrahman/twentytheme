@@ -1,4 +1,7 @@
 $blue: blue;
+$green: green;
+$yellow: yellow;
+$lightblue: lightblue;
 $lightgreen: lightgreen;
 $lightyellow: lightyellow;
 $red: red;
@@ -14,5 +17,6 @@ h2 {
 }
 
 p {
-    color: $red;
+    color: $green;
+    font-size: 2rem;
 }

@@ -17,4 +17,3 @@
                           'menu_class' => 'top-menu-class'
         ));
     ?>
-    <h1>Azuul !</h1>

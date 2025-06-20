@@ -10,6 +10,27 @@ body header .top-menu-class, body footer .top-menu-class {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+body header .top-menu-class .sub-menu, body footer .top-menu-class .sub-menu {
+  display: none; /* Hide sub-menu */
+}
+body header .top-menu-class .menu-item-has-children:hover .sub-menu, body footer .top-menu-class .menu-item-has-children:hover .sub-menu {
+  display: block; /* Display sub-menu */
+  position: absolute;
+  margin: 0;
+  padding: 0 0.5rem 0 0.5rem;
+  background: rgb(68, 63, 63);
+  border-radius: 0.3rem;
+  box-shadow: 1px 1px 4px rgb(205, 205, 205);
+  z-index: 999;
+}
+body header .top-menu-class .menu-item-has-children:hover .sub-menu .menu-item, body footer .top-menu-class .menu-item-has-children:hover .sub-menu .menu-item {
+  list-style-type: none;
+  border-top: 2px solid white;
+}
+body header .top-menu-class .menu-item-has-children:hover .sub-menu .menu-item a, body footer .top-menu-class .menu-item-has-children:hover .sub-menu .menu-item a {
+  padding: 0;
 }
 body header .top-menu-class, body header .bottom-menu-class, body footer .top-menu-class, body footer .bottom-menu-class {
   height: 100%;
@@ -21,7 +42,7 @@ body header .top-menu-class, body header .bottom-menu-class, body footer .top-me
 }
 body header .top-menu-class li a, body header .bottom-menu-class li a, body footer .top-menu-class li a, body footer .bottom-menu-class li a {
   color: white;
-  padding: 0.25rem 1rem;
+  padding: 0.25rem 1.3rem;
   text-decoration: none;
 }
 body header .top-menu-class li a:hover, body header .bottom-menu-class li a:hover, body footer .top-menu-class li a:hover, body footer .bottom-menu-class li a:hover {

@@ -10,10 +10,14 @@
 </head>
 
 <body>
-    <?php
-        wp_nav_menu(array(
-                          'theme_location' => 'main-menu',
-                          'menu_id' => 'main-menu-id',
-                          'menu_class' => 'top-menu-class'
-        ));
-    ?>
+    <header>
+        <div class="container">
+            <?php
+                wp_nav_menu(array(
+                                'theme_location' => 'top-menu',
+                                'menu_id' => 'top-menu-id',
+                                'menu_class' => 'top-menu-class'
+                ));
+            ?>
+        </div>
+    </header>

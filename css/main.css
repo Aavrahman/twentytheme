@@ -1,3 +1,47 @@
+body header, body footer {
+  background-color: rgb(68, 63, 63);
+  width: 100%;
+  height: 100px;
+}
+body header .container, body header .menu-main-menu-container, body footer .container, body footer .menu-main-menu-container {
+  height: 100%;
+}
+body header .top-menu-class, body footer .top-menu-class {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body header .top-menu-class, body header .bottom-menu-class, body footer .top-menu-class, body footer .bottom-menu-class {
+  height: 100%;
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+body header .top-menu-class li a, body header .bottom-menu-class li a, body footer .top-menu-class li a, body footer .bottom-menu-class li a {
+  color: white;
+  padding: 0.25rem 1rem;
+  text-decoration: none;
+}
+body header .top-menu-class li a:hover, body header .bottom-menu-class li a:hover, body footer .top-menu-class li a:hover, body footer .bottom-menu-class li a:hover {
+  color: lightblue;
+}
+body header .top-menu-class li:first-child a, body header .bottom-menu-class li:first-child a, body footer .top-menu-class li:first-child a, body footer .bottom-menu-class li:first-child a {
+  padding-left: 0;
+}
+body header .top-menu-class li:last-child a, body header .bottom-menu-class li:last-child a, body footer .top-menu-class li:last-child a, body footer .bottom-menu-class li:last-child a {
+  padding-right: 0;
+}
+
+footer p {
+  color: white;
+}
+
+.page-wrap {
+  padding: 2rem 0;
+}
+
 h1 {
   color: red;
   background-color: lightyellow;
@@ -9,7 +53,7 @@ h2 {
 }
 
 p {
-  color: rgb(39, 36, 36);
+  color: rgb(68, 63, 63);
   font-size: 1rem;
 }
 

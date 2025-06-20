@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: About Us
+Template Name: Contact Us
 */
 ?>
 
@@ -8,7 +8,7 @@ Template Name: About Us
 get_header();
 ?>
 
-<p> This is the 'about-us.php' page </p>
+<p> This is the 'kontakt-aghed.php' page </p>
 
 <h1> <?php the_title(); ?> </h1>
 

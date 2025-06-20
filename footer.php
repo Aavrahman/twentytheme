@@ -1,13 +1,15 @@
     <footer>
-        <p>© 2025 - Tiwura useggas </p>
+        <div class="container">
+            <p>© 2025 - Tiwura useggas </p>
 
-        <?php
-            wp_nav_menu(array(
-                    'theme-location' => 'lower-menu',
-                    'menu_id' => 'lower-menu-id',
-                    'menu_class' => 'lower-menu-class'
-            ));
-        ?>
+            <?php
+                wp_nav_menu(array(
+                        'theme_location' => 'bottom-menu',
+                        'menu_id' => 'bottom-menu-id',
+                        'menu_class' => 'bottom-menu-class'
+                ));
+            ?>
+        </div>
     </footer>
 
     <?php wp_footer(); ?>

@@ -1,7 +1,7 @@
 <?php
 get_header();
 ?>
-<body>
+
     <section class="page-wrap">
         <div class="container">
             <p> This is front-page.php </p>
@@ -11,7 +11,6 @@ get_header();
             <?php get_template_part('includes/section', 'content'); ?>
         </div>
     </section>
-</body>
 
 <?php
 get_footer();

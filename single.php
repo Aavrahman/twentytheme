@@ -1,9 +1,12 @@
 <?php
 get_header();
 ?>
-
-
-<p> This is single.php </p>
+    
+    <section class="page-wrap">
+        <div class="container">
+            <p> This is single.php </p>
+        </div>
+    </section>
 
 <?php
 get_footer();

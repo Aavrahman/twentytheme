@@ -2,11 +2,12 @@
 get_header();
 ?>
 
-
-<p> This is search.php </p>
+    <section class="page-wrap">
+        <div class="container">
+            <p> This is search.php </p>
+        </div>
+    </section>
 
 <?php
 get_footer();
 ?>
-
-<p> This is serach.php </p>

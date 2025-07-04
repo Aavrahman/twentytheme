@@ -6,7 +6,7 @@ get_header();
         <div class="container">
             <p> This is front-page.php </p>
 
-            <h1> <?php the_title(); ?> </h1>
+            <h1> <?php the_title(); ?> </h1> <!-- Set to display the last post's title in the front page -->
 
             <?php get_template_part('includes/section', 'content'); ?>
         </div>

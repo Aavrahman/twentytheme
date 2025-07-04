@@ -7,24 +7,24 @@ Template Name: About Us
 <?php
 get_header();
 ?>
-    
-    <section class="page-wrap">
-        <div class="container">
 
-            <p> This is the 'about-us.php' page </p>
+<section class="page-wrap">
+    <div class="container">
 
-            <h1> <?php the_title(); ?> </h1>
+        <p> This is the 'about-us.php' page </p>
 
-            <div class="row">
-                <div class="col-lg-6">
-                    <p> This is where the contact form goes.</p>
-                </div>
-                <div class="col-lg-6">
-                    <?php get_template_part('includes/section', 'content'); ?>
-                </div>
+        <h1> <?php the_title(); ?> </h1>
+
+        <div class="row">
+            <div class="col-lg-3">
+                <p> Colonne latérale droite: Here will be displayed some widgets, menus. This is where the contact form goes.</p>
+            </div>
+            <div class="col-lg-9">
+                <?php get_template_part('includes/section', 'content'); ?>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 <?php
 get_footer();

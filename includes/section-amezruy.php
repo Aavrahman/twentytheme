@@ -10,29 +10,38 @@
 
                 ?>
 
-                <article>
+                <article class="card mb-3">
+                    <div class="card-body">
                 <?php
                         the_post();
 
                         if (has_post_thumbnail()):
                             the_post_thumbnail("medium");
                         else:
+                            echo("No available image.");
                         endif;
                 ?>
+
                         <a href="<?php the_permalink(); ?>">
                             <h2> <?php the_title(); ?> </h2>
                         </a>
+                        
+                        <section>
+                        <?php
+                            echo get_the_date('d/m/Y h:i:s');
+                        ?>
+                        </section>
 
-                <?php
-                        the_excerpt();
-                ?>
+                <?php   the_excerpt(); ?>
 
-                        <a href="<?php the_permalink(); ?>"> Gher Artikl </a>
+                        <a class="btn btn-success" href="<?php the_permalink(); ?>"> Gher artikl </a>
+
+                    </div>
+                </article>
 
                 <?php
                     endwhile;
                 ?>
-                </article>
 
                 <section>
                 <?php

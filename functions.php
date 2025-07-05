@@ -30,3 +30,8 @@ register_nav_menus(
         'error' => '404 Error',
     )
 );
+
+
+add_theme_support('post-thumbnails');
+add_image_size('blog-large', 800, 400, false);  // see the plugin 'Force regenerate thumbnails'
+add_image_size('blog-small', 300, 200, false);

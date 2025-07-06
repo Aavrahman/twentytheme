@@ -25,8 +25,8 @@
                         </section>
 
 
-                <article class="card-body d-flex align-item-center justify-content-center">
-                    <section >
+                <article class="card-body d-flex align-item-center justify-content-center row">
+                    <section class="col-12 col-md-6 col-lg-6">
                         <?php
                             if(has_post_thumbnail()): ?>
                                 <img src="<?php the_post_thumbnail_url('large'); ?>" alt="<?php the_title(); ?>" class="img-fluid m-1 img-thumbnail" />
@@ -39,7 +39,7 @@
 
                         
 
-                    <section class="blog-content">
+                    <section  class="col-12 col-md-6 col-lg-6">
                 <?php the_content(); ?>
 
                 <?php

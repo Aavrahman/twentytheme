@@ -19,7 +19,7 @@ get_header();
 
             <?php get_template_part("includes/section", "amezruy"); ?>
 
-            <?php previous_post_link(); ?>
+            <?php previous_post_link("prev"); ?>
             <?php next_post_link(); ?>
 
         </div>

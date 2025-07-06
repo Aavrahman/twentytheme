@@ -10,8 +10,10 @@
 
                 ?>
 
-                <article class="card mb-3">
-                    <div class="card-body">
+
+
+                <article class="card-body d-flex align-item-center justify-content-center row">
+                    <div  class="col-12 col-md-6 col-lg-5 mb-1 d-flex align-item-center justify-content-center">
                 <?php
                         the_post();
 
@@ -21,20 +23,26 @@
                             echo("No available image.");
                         endif;
                 ?>
+                    </div>
 
-                        <a href="<?php the_permalink(); ?>">
-                            <h2> <?php the_title(); ?> </h2>
-                        </a>
+                    <div  class="col-12 col-md-6 col-lg-6 m-1 d-flex align-item-center justify-content-center">
+                        <div>
+                            <a href="<?php the_permalink(); ?>">
+                                <h2> <?php the_title(); ?> </h2>
+                            </a>
                         
-                        <section>
-                        <?php
-                            echo get_the_date('d/m/Y h:i:s');
-                        ?>
-                        </section>
+                            <section>
+                <?php
+                                echo get_the_date('d/m/Y h:i:s');
+                ?>
+                            </section>
 
-                <?php   the_excerpt(); ?>
+                <?php   
+                            the_excerpt();
+                ?>
 
-                        <a class="btn btn-success" href="<?php the_permalink(); ?>"> Gher artikl </a>
+                            <a class="btn btn-success" href="<?php the_permalink(); ?>"> Gher artikl </a>
+                        </div>
 
                     </div>
                 </article>

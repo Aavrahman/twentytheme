@@ -20,7 +20,7 @@ get_header();
                 <p> Colonne latérale droite: Here will be displayed some widgets, menus. This is where the contact form goes.</p>
             </div>
             <div class="col-lg-9">
-                <?php get_template_part('includes/section', 'content'); ?>
+                <?php get_template_part('includes/section', 'page'); ?>
             </div>
         </div>
     </div>

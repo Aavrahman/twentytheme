@@ -103,4 +103,4 @@ function the_sidebars() {
         )
     );
 }
-add_action('init', 'the_sidebars');
+add_action('widgets_init', 'the_sidebars');

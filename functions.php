@@ -1,5 +1,6 @@
 <?php
 
+// BOOTSTRAP AND STYLE
 // Load Bootstrap and style.css
 function load_style()
 {
@@ -20,7 +21,8 @@ function load_js()
 add_action('wp_enqueue_scripts', 'load_js');
 
 
-//Theme options
+// THEME OPTIONS
+// Menus
 add_theme_support('menus');
 register_nav_menus(
     array(
@@ -31,7 +33,74 @@ register_nav_menus(
     )
 );
 
-
+// Thumbnails
 add_theme_support('post-thumbnails');
-add_image_size('blog-large', 800, 500, false);  // see the plugin 'Force regenerate thumbnails'
 add_image_size('blog-small', 300, 200, false);
+add_image_size('blog-medium', 500, 300, false);  // see the plugin 'Force regenerate thumbnails'
+add_image_size('blog-large', 800, 500, false);
+
+// Widgets
+add_theme_support('widgets');
+
+function the_sidebars() {
+    register_sidebar(
+        array(
+            'name' => 'Page widget',
+            'id' => 'page_widget',
+            'before_title' => '<h4 class="widget-title"',
+            'after_title' => '</h4>',
+            'description' => 'Side widget for articles and pages',
+            'before_widget' => '<div>',
+            'after_widget' => '</div>',
+        )
+    );
+
+    register_sidebar(
+        array(
+            'name' => 'Post widget',
+            'id' => 'post_widget',
+            'before_title' => '<h4 class="widget-title"',
+            'after_title' => '</h4>',
+            'description' => 'Side widget for articles and pages',
+            'before_widget' => '<div>',
+            'after_widget' => '</div>',
+        )
+    );
+
+    register_sidebar(
+        array(
+            'name' => 'Blog widget',
+            'id' => 'blog_widget',
+            'before_title' => '<h4 class="widget-title"',
+            'after_title' => '</h4>',
+            'description' => 'Side widget for articles and pages',
+            'before_widget' => '<div>',
+            'after_widget' => '</div>',
+        )
+    );
+
+    register_sidebar(
+        array(
+            'name' => 'Archive widget',
+            'id' => 'archive_widget',
+            'before_title' => '<h4 class="widget-title"',
+            'after_title' => '</h4>',
+            'description' => 'Side widget for articles and pages',
+            'before_widget' => '<div>',
+            'after_widget' => '</div>',
+        )
+    );
+
+    register_sidebar(
+        array(
+            'name' => 'Footer widget',
+            'id' => 'footer_widget',
+            'before_title' => '<h4 class="widget-title"',
+            'after_title' => '</h4>',
+            'description' => 'Footer widget for articles\' and pages\' bottom',
+            'before_widget' => '<div>',
+            'after_widget' => '</div>',
+        )
+    );
+}
+add_action('init', 'the_sidebars');

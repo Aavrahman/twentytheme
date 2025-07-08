@@ -9,6 +9,12 @@ get_header();
             <h1> <?php the_title(); ?> </h1>
 
             <?php get_template_part('includes/section', 'content'); ?>
+
+            <?php           // Sidebar
+                if(is_active_sidebar('page_widget')):
+                    dynamic_sidebar('page_widget');
+                endif;
+            ?>
         </div>
     </section>
 

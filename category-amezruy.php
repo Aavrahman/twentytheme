@@ -22,6 +22,13 @@ get_header();
             <?php previous_post_link("prev"); ?>
             <?php next_post_link(); ?>
 
+            <?php
+            ////////////////////////// Archive Widget //////////////////////////////////////////
+            if (is_active_sidebar('archive_widget')):
+                dynamic_sidebar('archive_widget');
+            endif;
+            ?>
+
         </div>
     </div>
 </main>

@@ -18,6 +18,13 @@ get_header();
             <?php previous_post_link(); ?>
             <?php next_post_link(); ?>
 
+            <?php
+            ////////////////////////// Archive Widget //////////////////////////////////////////
+            if (is_active_sidebar('archive_widget')):
+                dynamic_sidebar('archive_widget');
+            endif;
+            ?>
+
         </div>
     </section>
 </main>

@@ -14,6 +14,12 @@ get_header();
 
             <?php wp_link_pages(); ?>
 
+            <?php           // Sidebar
+                if(is_active_sidebar('post_widget')):
+                    dynamic_sidebar('post_widget');
+                endif;
+            ?>
+
 
         </div>
     </section>

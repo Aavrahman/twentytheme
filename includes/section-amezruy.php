@@ -41,7 +41,7 @@
                             the_excerpt();
                                 ?>
 
-<!--                        <a class="btn btn-success" href="<?php // the_permalink(); ?>"> Gher artikl </a> -->
+                            <a class="btn btn-success" href="<?php the_permalink(); ?>"> Gher artikl </a>
 
                         </div>
 

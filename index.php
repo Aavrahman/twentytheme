@@ -14,11 +14,11 @@ get_header();
             <?php           // Sidebar
                 if(is_active_sidebar('blog_sidebar')):
                     dynamic_sidebar('blog_sidebar');
-                elseif(is_active_sidebar('page_sidebar'):
+                elseif(is_active_sidebar('page_sidebar')):
                     dynamic_sidebar('page_sidebar');
-                elseif(is_active_sidebar('post_sidebar'):
+                elseif(is_active_sidebar('post_sidebar')):
                     dynamic_sidebar('post_sidebar');
-                elseif(is_active_sidebar('archive_sidebar'):
+                elseif(is_active_sidebar('archive_sidebar')):
                     dynamic_sidebar('archive_sidebar');
                 endif;
             ?>

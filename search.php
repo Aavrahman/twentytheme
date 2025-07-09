@@ -2,19 +2,29 @@
 get_header();
 ?>
 
-    <section class="page-wrap">
-        <div class="container">
-            <p> This is search.php </p>
+    <main>
+        <section class="page-wrap">
+            <div class="container">
 
-            <?php           // Sidebar
-                if(is_active_sidebar('page_sidebar')):
-                    dynamic_sidebar('page_sidebar');
-                elseif(is_active_sidebar('post_sidebar'):
-                    dynamic_sidebar('post_sidebar');
-                endif;
-            ?>
-        </div>
-    </section>
+
+                <h1> Tahawact n unadi ghef awal <span style="color:white; background-color:black;";>'<?php echo get_search_query(); ?>'</span> </h1>
+
+                <h2>Ata wayen id yufa </h2>
+
+                <p> 'search.php' template' calling 'section-archive.php' section </p>
+
+                <?php
+                get_template_part("includes/section", "searchresult");
+                ?>
+
+                <?php previous_post_link(); ?>
+                <?php next_post_link(); ?>
+
+
+
+            </div>
+        </section>
+    </main>
 
 <?php
 get_footer();

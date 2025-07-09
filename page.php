@@ -11,8 +11,8 @@ get_header();
             <?php get_template_part('includes/section', 'page'); ?>
 
             <?php           // Sidebar
-                if(is_active_sidebar('page_widget')):
-                    dynamic_sidebar('page_widget');
+                if(is_active_sidebar('page_sidebar')):
+                    dynamic_sidebar('page_sidebar');
                 endif;
             ?>
         </div>

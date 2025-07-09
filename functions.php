@@ -45,8 +45,8 @@ add_theme_support('widgets');
 function the_sidebars() {
     register_sidebar(
         array(
-            'name' => 'Page widget',
-            'id' => 'page_widget',
+            'name' => 'Page sidebar',
+            'id' => 'page_sidebar',
             'before_title' => '<h4 class="widget-title"',
             'after_title' => '</h4>',
             'description' => 'Side widget for articles and pages',
@@ -57,8 +57,8 @@ function the_sidebars() {
 
     register_sidebar(
         array(
-            'name' => 'Post widget',
-            'id' => 'post_widget',
+            'name' => 'Post sidebar',
+            'id' => 'post_sidebar',
             'before_title' => '<h4 class="widget-title"',
             'after_title' => '</h4>',
             'description' => 'Side widget for articles and pages',
@@ -69,8 +69,8 @@ function the_sidebars() {
 
     register_sidebar(
         array(
-            'name' => 'Blog widget',
-            'id' => 'blog_widget',
+            'name' => 'Blog sidebar',
+            'id' => 'blog_sidebar',
             'before_title' => '<h4 class="widget-title"',
             'after_title' => '</h4>',
             'description' => 'Side widget for articles and pages',
@@ -81,8 +81,8 @@ function the_sidebars() {
 
     register_sidebar(
         array(
-            'name' => 'Archive widget',
-            'id' => 'archive_widget',
+            'name' => 'Archive sidebar',
+            'id' => 'archive_sidebar',
             'before_title' => '<h4 class="widget-title"',
             'after_title' => '</h4>',
             'description' => 'Side widget for articles and pages',
@@ -93,8 +93,8 @@ function the_sidebars() {
 
     register_sidebar(
         array(
-            'name' => 'Footer widget',
-            'id' => 'footer_widget',
+            'name' => 'Footer sidebar',
+            'id' => 'footer_sidebar',
             'before_title' => '<h4 class="widget-title"',
             'after_title' => '</h4>',
             'description' => 'Footer widget for articles\' and pages\' bottom',

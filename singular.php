@@ -11,8 +11,8 @@ get_header();
             ?>
 
             <?php           // Sidebar
-                if(is_active_sidebar('post_widget')):
-                    dynamic_sidebar('post_widget');
+                if(is_active_sidebar('post_sidebar')):
+                    dynamic_sidebar('post_sidebar');
 
                 else:
                     echo("No widget !")

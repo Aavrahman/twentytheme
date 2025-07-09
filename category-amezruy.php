@@ -24,8 +24,8 @@ get_header();
 
             <?php
             ////////////////////////// Archive Widget //////////////////////////////////////////
-            if (is_active_sidebar('archive_widget')):
-                dynamic_sidebar('archive_widget');
+            if (is_active_sidebar('archive_sidebar')):
+                dynamic_sidebar('archive_sidebar');
             endif;
             ?>
 

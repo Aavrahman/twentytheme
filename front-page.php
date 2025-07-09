@@ -11,10 +11,10 @@ get_header();
             <?php get_template_part('includes/section', 'content'); ?>
 
             <?php           // Sidebar
-                if(is_active_sidebar('blog_widget')):
-                    dynamic_sidebar('blog_widget');
-                elseif (is_active_sidebar('page_widget')):
-                    dynamic_sidebar('page_widget');
+                if(is_active_sidebar('blog_sidebar')):
+                    dynamic_sidebar('blog_sidebar');
+                elseif (is_active_sidebar('page_sidebar')):
+                    dynamic_sidebar('page_sidebar');
                 endif;
             ?>
         </div>

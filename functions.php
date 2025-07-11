@@ -104,3 +104,38 @@ function the_sidebars() {
     );
 }
 add_action('widgets_init', 'the_sidebars');
+
+
+// CUSTOM POST TYPES
+//Taqvaylit Post Type
+function taqvaylit_post() {
+    $args = array(
+                  'labels' => array(
+                                    'name' => 'Tutlayin',
+                                    'singular_name' => 'Tutlayt',
+                  ),
+                  'hierarchical' => true,
+                  'public' => true,
+                  'has_archive' => true,
+                  'menu_icon' => 'dashicons-universal-access',
+                  'supports' => array('title', 'editor', 'thumbnail', 'auhtor'),
+                  // 'rewrite' => array('slug' => 'cars'),
+    );
+    register_post_type('tutlayt', $args);
+}
+add_action('init', 'taqvaylit_post');
+
+//Taqvaylit Taxonomy
+function taqvaylit_taxonomy() {
+    $args = array(
+        'labels' => array(
+            'name' => 'Timazighin',
+            'singular_name' => 'Tamazight',
+        ),
+        'public' => true,
+        'hierarchical' => true, // true stands for Category; flase for Tag
+    );
+
+    register_taxonomy('timazighin', array('tutlayt'), $args);
+}
+add_action('init', 'taqvaylit_taxonomy');

@@ -108,11 +108,15 @@ add_action('widgets_init', 'the_sidebars');
 
 // CUSTOM POST TYPES
 //Taqvaylit Post Type
-function taqvaylit_post() {
+function tutlayt_post_type() {
     $args = array(
                   'labels' => array(
                                     'name' => 'Tutlayin',
                                     'singular_name' => 'Tutlayt',
+                                    'view_items' => "Wali tutlayin",
+                                    'view_item' => "Wali tutlayt",
+                                    'add_new_item' => "Rnud tutlayt",
+                                    'add_new' => "Rnud",
                   ),
                   'hierarchical' => true,
                   'public' => true,
@@ -123,14 +127,14 @@ function taqvaylit_post() {
     );
     register_post_type('tutlayt', $args);
 }
-add_action('init', 'taqvaylit_post');
+add_action('init', 'tutlayt_post_type');
 
 //Taqvaylit Taxonomy
-function taqvaylit_taxonomy() {
+function tutlayt_taxonomy() {
     $args = array(
         'labels' => array(
-            'name' => 'Timazighin',
-            'singular_name' => 'Tamazight',
+                          'name' => 'Timazighin',
+                          'singular_name' => 'Tamazight',
         ),
         'public' => true,
         'hierarchical' => true, // true stands for Category; flase for Tag
@@ -138,4 +142,4 @@ function taqvaylit_taxonomy() {
 
     register_taxonomy('timazighin', array('tutlayt'), $args);
 }
-add_action('init', 'taqvaylit_taxonomy');
+add_action('init', 'tutlayt_taxonomy');

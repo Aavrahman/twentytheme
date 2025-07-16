@@ -41,6 +41,23 @@
                     the_content();
                 ?>
 
+
+                <ul>
+                <?php
+                    if(get_post_meta($post->ID, 'Locuteurs', true)): ?>
+                            <li>Locuteurs : <?php echo get_post_meta($post->ID, 'Locuteurs', true);?> millions </li>
+                <?php
+                    else:
+                        echo("<p>Pas de locuteurs.</p>");
+                endif; ?>
+                <?php
+                    if(get_post_meta($post->ID, 'Locuteurs', true)): ?>
+                            <li>Existe depuis : <?php echo get_post_meta($post->ID, 'Locuteurs', true);?> siècles </li>
+                <?php
+                    else:
+                        echo("<p>Pas de locuteurs.</p>");
+                endif; ?>
+                </ul>
     
                 <?php
                     $fname = get_the_author_meta('first_name');

@@ -122,7 +122,7 @@ function tutlayt_post_type() {
                   'public' => true,
                   'has_archive' => true,
                   'menu_icon' => 'dashicons-universal-access',
-                  'supports' => array('title', 'editor', 'thumbnail', 'auhtor'),
+                  'supports' => array('title', 'editor', 'thumbnail', 'auhtor', 'custom-fields'),
                   // 'rewrite' => array('slug' => 'cars'),
     );
     register_post_type('tutlayt', $args);

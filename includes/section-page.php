@@ -36,7 +36,7 @@
                         </section>
 
                         <?php
-                            the_excerpt(); // the_content();
+                           /* the_excerpt(); */ the_content();
                         ?>
                     </div>
                 </div>

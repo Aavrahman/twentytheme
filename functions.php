@@ -150,3 +150,12 @@ function tutlayt_taxonomy() {
     register_taxonomy('timazighin', array('tutlayt'), $args);
 }
 add_action('init', 'tutlayt_taxonomy');
+
+
+// SHORT CODES
+/*
+function display_image() {
+    $content = "<h2>Azul aaaakkit Fellawen !</h2>";
+    return $content;
+}
+add_shortcode('say_azul', 'display_image'); */

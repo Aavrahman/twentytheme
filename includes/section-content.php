@@ -36,11 +36,11 @@
                         </section>
 
                         <?php
-                        the_excerpt(); // the_content();
+                        /* the_excerpt(); */ the_content();
                         ?>
 
 
-                        <a class="btn btn-success" href="<?php the_permalink(); ?>"> Gher artikl </a>
+                    <!--    <a class="btn btn-success" href="<?php // the_permalink(); ?>"> Gher artikl </a>  -->
 
                     </div>
                 </div>

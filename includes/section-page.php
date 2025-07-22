@@ -1,7 +1,8 @@
-<h3>This is the 'section-content.php' section file</h3>
-<main>
-    <div class="page-wrap">
-        <div class="container">
+        <div>
+
+            <h3>This is the 'section-content.php' section file</h3>
+
+            <h1> <?php the_title(); ?> </h1>
 
             <?php
             if (have_posts()):
@@ -57,5 +58,3 @@
             </article>
 
         </div>
-    </div>
-</main>

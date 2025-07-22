@@ -222,7 +222,7 @@ if (! class_exists('WP_Bootstrap_Navwalker')) :
                 $atts['href'] = ! empty( $item->url ) ? $item->url : '';
                 $atts['data-hover'] = 'dropdown';                           // AFTER
                 $atts['aria-expanded'] = 'false';                           // AFTER
-                $atts['aria-haspopup'] = 'true';                            // AFTER    -   ADDED
+            //    $atts['aria-haspopup'] = 'true';                            // AFTER    -   ADDED
                 $atts['class']         = 'dropdown-toggle nav-link';
                 $atts['id']            = 'menu-item-dropdown-' . $item->ID;
             } else {

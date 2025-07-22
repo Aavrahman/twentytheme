@@ -49,7 +49,8 @@ add_image_size('blog-large', 800, 500, false);
 // Widgets
 add_theme_support('widgets');
 
-function the_sidebars() {
+function the_sidebars()
+{
     register_sidebar(
         array(
             'name' => 'Page sidebar',
@@ -115,33 +116,35 @@ add_action('widgets_init', 'the_sidebars');
 
 // CUSTOM POST TYPES
 //Taqvaylit Post Type
-function tutlayt_post_type() {
+function tutlayt_post_type()
+{
     $args = array(
-                  'labels' => array(
-                                    'name' => 'Tutlayin',
-                                    'singular_name' => 'Tutlayt',
-                                    'view_items' => "Wali tutlayin",
-                                    'view_item' => "Wali tutlayt",
-                                    'add_new_item' => "Rnud tutlayt",
-                                    'add_new' => "Rnud",
-                  ),
-                  'hierarchical' => true,
-                  'public' => true,
-                  'has_archive' => true,
-                  'menu_icon' => 'dashicons-universal-access',
-                  'supports' => array('title', 'editor', 'thumbnail', 'auhtor', 'custom-fields'),
-                  // 'rewrite' => array('slug' => 'cars'),
+        'labels' => array(
+            'name' => 'Tutlayin',
+            'singular_name' => 'Tutlayt',
+            'view_items' => "Wali tutlayin",
+            'view_item' => "Wali tutlayt",
+            'add_new_item' => "Rnud tutlayt",
+            'add_new' => "Rnud",
+        ),
+        'hierarchical' => true,
+        'public' => true,
+        'has_archive' => true,
+        'menu_icon' => 'dashicons-universal-access',
+        'supports' => array('title', 'editor', 'thumbnail', 'auhtor', 'custom-fields'),
+        // 'rewrite' => array('slug' => 'cars'),
     );
     register_post_type('tutlayt', $args);
 }
 add_action('init', 'tutlayt_post_type');
 
 //Taqvaylit Taxonomy
-function tutlayt_taxonomy() {
+function tutlayt_taxonomy()
+{
     $args = array(
         'labels' => array(
-                          'name' => 'Timazighin',
-                          'singular_name' => 'Tamazight',
+            'name' => 'Timazighin',
+            'singular_name' => 'Tamazight',
         ),
         'public' => true,
         'hierarchical' => true, // true stands for Category; flase for Tag
@@ -153,9 +156,38 @@ add_action('init', 'tutlayt_taxonomy');
 
 
 // SHORT CODES
-/*
-function display_image() {
-    $content = "<h2>Azul aaaakkit Fellawen !</h2>";
+
+function display_image($atts, $content = null)
+{
+    $a = shortcode_atts(
+        array(
+            'src' => '',
+            'content' => $content,
+            'txt' => "tekst"
+        ),
+        $atts
+    );
+    ob_start();
+    if ($a['src'] != ""):
+?>
+        <div style="padding: 1rem; background-color: lightblue; background-image: url(<?= $a['src'] ?>)">
+            <h3>Image</h3>
+            <p> Source : <?= $a['src'] ?> </p>
+            <p style="padding: 1rem; background-color:lightyellow"> contenu : <?= $a['content'] ?> </p>
+            <p> Texte: <?= $a['txt'] ?> </p>
+        </div>
+    <?php
+    else:
+    ?>
+        <div style="padding: 2rem; background-color: lightblue">
+            <h3>Image</h3>
+            <p style="padding: 1rem; background-color:lightyellow"> contenu : <?= $a['content'] ?> </p>
+            <p> Texte: <?= $a['txt'] ?> </p>
+        </div>
+<?php
+    endif;
+    $content = ob_get_contents();
+    ob_end_clean();
     return $content;
 }
-add_shortcode('say_azul', 'display_image'); */
+add_shortcode('say_azul', 'display_image');

@@ -2,22 +2,23 @@
 get_header();
 ?>
 
-    <section class="page-wrap">
-        <div class="container">
-            <p> This is the page.php page template calling the 'section-content.php' section </p>
+    <main class="container">
+        <div class="page-wrap">
 
-            <h1> <?php the_title(); ?> </h1>
+                <p> This is the page.php page template calling 'section-page.php' </p>
 
-            <?php get_template_part('includes/section', 'page'); ?>
 
-            <?php           // Sidebar
-                if(is_active_sidebar('page_sidebar')):
+                <?php get_template_part('includes/section', 'page'); ?>
+
+                <?php           // Sidebar
+                if (is_active_sidebar('page_sidebar')):
                     dynamic_sidebar('page_sidebar');
                 endif;
-            ?>
-        </div>
-    </section>
+                ?>
 
-<?php
-get_footer();
-?>
+        </div>
+    </main>
+
+        <?php
+        get_footer();
+        ?>

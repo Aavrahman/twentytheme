@@ -1,8 +1,4 @@
-<h3>Here is the section.single.php</h3>
-
-
-
-<div class="col-8 bg-success bg-opacity-10 p-3">
+<h3>Here is the section.singletutlayt.php</h3>
 
 
     <?php
@@ -50,37 +46,40 @@
                     ?>
                 </section>
 
-                <section>
-                    <ul>
-                        <?php
-                        if (get_post_meta($post->ID, 'Locuteurs', true)): ?>
-                            <li>Locuteurs : <?php echo get_post_meta($post->ID, 'Locuteurs', true); ?> millions </li>
-                        <?php
-                        else:
-                            echo ("<p>Pas de locuteurs.</p>");
-                        endif; ?>
-                        <?php
-                        if (get_post_meta($post->ID, 'Age', true)): ?>
-                            <li>Existe depuis : <?php echo get_post_meta($post->ID, 'Age', true); ?> siècles </li>
-                        <?php
-                        else:
-                            echo ("<p>Ur ittwassen ara.</p>");
-                        endif; ?>
-                        <?php
-                        if (get_post_meta($post->ID, 'Reference', true)): ?>
-                            <li>Amusnaw : <?php echo get_post_meta($post->ID, 'Reference', true); ?> gar-asen </li>
-                        <?php
-                        else:
-                            echo ("<p>Ulac wid nessen.</p>");
-                        endif; ?>
-                    </ul>
+                <section class="card ms-5 p-3">
+                    <h2>Section latérale</h2>
+                    <div class="card-body">
+                        <ul>
+                            <?php
+                            if (get_post_meta($post->ID, 'Locuteurs', true)): ?>
+                                <li>Locuteurs : <?php echo get_post_meta($post->ID, 'Locuteurs', true); ?> millions </li>
+                            <?php
+                            else:
+                                echo ("<p>Pas de locuteurs.</p>");
+                            endif; ?>
+                            <?php
+                            if (get_post_meta($post->ID, 'Age', true)): ?>
+                                <li>Existe depuis : <?php echo get_post_meta($post->ID, 'Age', true); ?> siècles </li>
+                            <?php
+                            else:
+                                echo ("<p>Ur ittwassen ara.</p>");
+                            endif; ?>
+                            <?php
+                            if (get_post_meta($post->ID, 'Reference', true)): ?>
+                                <li>Amusnaw : <?php echo get_post_meta($post->ID, 'Reference', true); ?> gar-asen </li>
+                            <?php
+                            else:
+                                echo ("<p>Ulac Reference nessen.</p>");
+                            endif; ?>
+                        </ul>
+                    </div>
                 </section>
             </article>
 
 
             <article>
                 <section>
-                    <?php
+                    <?php               // Des tags éventuellement
                     $tags = get_the_tags();
                     if ($tags):
                         foreach ($tags as $tag):
@@ -94,13 +93,13 @@
 
                     <?php
                         endforeach;
-                    else:
+                    else:                   // Sinon un message d'insiponibilité
                         echo ('Ulac tag di tqertilt.');
                     endif;
                     ?>
                 </section>
                 <section>
-                    <?php
+                    <?php                   // Des catégories éventuellement
                     $categories = get_the_category();
                     if ($categories):
                         foreach ($categories as $cat):
@@ -115,7 +114,7 @@
 
                     <?php
                         endforeach;
-                    else:
+                    else:                   // Sinon message d'indisponibilité
                         echo ('This article is affiliated to no category');
                     endif;
                     ?>
@@ -138,5 +137,3 @@
         echo ("No posts available !");
     endif;
     ?>
-
-</div>

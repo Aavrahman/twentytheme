@@ -2,36 +2,53 @@
 get_header();
 ?>
 
-<main class="container">
-    <div class="card-body row d-flex justify-content-evenly flex-wrap mb-3 mt-2">
+    <main class="container">
 
-        <p> This is the 'single-tutlayt.php' template calling the "single-content.php" section </p>
+        <p> This is the 'single-tutlayt.php' template calling the "sectiont-singletutlayt.php" section </p>
 
-        <?php
-        get_template_part("includes/section", "singletutlayt");
-        ?>
 
-        <?php wp_link_pages(); ?>
+        <div class="row">
 
-        <div class="d-flex align-items-center bg-warning bg-opacity-25 col-3">
-            <?php           // Sidebar
-            if (is_active_sidebar('post_sidebar')):
-                dynamic_sidebar('post_sidebar');
-            endif;
-            ?>
 
-            <?php
-            if (has_post_thumbnail()):
-            ?>
-                <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>" class="img-fluid m-1 img-thumbnail" />
-            <?php
-            else:
-            // echo ("No images for thos post !");
-            endif;
-            ?>
+            <div class="col-8 bg-success bg-opacity-10 p-3">
+                <?php
+                get_template_part("includes/section", "singletutlayt");
+                ?>
+                <?php wp_link_pages(); ?>
+            </div>
+
+
+            <div class="col-3 d-flex align-items-center bg-warning bg-opacity-10 ">
+                <div class="side_bar">
+                <?php           // Sidebar
+                if (is_active_sidebar('post_sidebar')):
+                    dynamic_sidebar('post_sidebar');
+                endif;
+                ?>
+                </div>
+
+                <div class="lateral_thumbnail">
+                <?php
+                if (has_post_thumbnail()):
+                ?>
+                    <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>" class="img-fluid m-1 img-thumbnail" />
+                <?php
+                else:
+                echo ("No images for thos post !");
+                endif;
+                ?>
+                </div>
+            </div>
+
+            <div class="col-11 bg-success bg-opacity-10 rounded mt-4 p-3">
+                <?php // get_template_part('includes/tutlayin', 'ugafa'); ?>
+            </div>
+
+
         </div>
-    </div>
-</main>
+
+
+    </main>
 
 <?php
 get_footer();

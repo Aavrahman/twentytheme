@@ -1,6 +1,6 @@
 <?php
 
-// BOOTSTRAP AND STYLE
+//////////////////////////////////////////////// BOOTSTRAP AND STYLE ////////////////////////////////////////////////
 // Load Bootstrap and style.css
 function load_style()
 {
@@ -21,7 +21,8 @@ function load_js()
 add_action('wp_enqueue_scripts', 'load_js');
 
 
-// THEME OPTIONS
+
+//////////////////////////////////////////////// THEME OPTIONS ////////////////////////////////////////////////
 // Menus
 add_theme_support('menus');
 register_nav_menus(
@@ -114,8 +115,9 @@ function the_sidebars()
 add_action('widgets_init', 'the_sidebars');
 
 
-// CUSTOM POST TYPES
-//Taqvaylit Post Type
+
+//////////////////////////////////////////////// CUSTOM POST TYPES ////////////////////////////////////////////////
+//Taqvaylit: Posts / Pages
 function tutlayt_post_type()
 {
     $args = array(
@@ -124,10 +126,10 @@ function tutlayt_post_type()
             'singular_name' => 'Tutlayt',
             'view_items' => "Wali tutlayin",
             'view_item' => "Wali tutlayt",
-            'add_new_item' => "Rnud tutlayt",
+        //  'add_new_item' => "Rnud tutlayt page",
             'add_new' => "Rnud",
         ),
-        'hierarchical' => true,
+        'hierarchical' => true,  // true stands for pages; false for Posts
         'public' => true,
         'has_archive' => true,
         'menu_icon' => 'dashicons-universal-access',
@@ -138,7 +140,7 @@ function tutlayt_post_type()
 }
 add_action('init', 'tutlayt_post_type');
 
-//Taqvaylit Taxonomy
+//Taqvaylit Taxonomy: Catgories / Ttags
 function tutlayt_taxonomy()
 {
     $args = array(
@@ -147,7 +149,7 @@ function tutlayt_taxonomy()
             'singular_name' => 'Tamazight',
         ),
         'public' => true,
-        'hierarchical' => true, // true stands for Category; flase for Tag
+        'hierarchical' => true, // true stands for Category; false for Tag
     );
 
     register_taxonomy('timazighin', array('tutlayt'), $args);
@@ -155,8 +157,9 @@ function tutlayt_taxonomy()
 add_action('init', 'tutlayt_taxonomy');
 
 
-// SHORT CODES
 
+//////////////////////////////////////////////// SHORT CODES ////////////////////////////////////////////////
+// Premier shortcode
 function display_image($atts, $content = null)
 {
     $a = shortcode_atts(
@@ -191,3 +194,11 @@ function display_image($atts, $content = null)
     return $content;
 }
 add_shortcode('say_azul', 'display_image');
+
+// Second shortcode: SHortcode importé
+function tutlayt_shortkode() {
+    ob_start();
+    get_template_part('includes/tutlayin', 'ugafa');
+    return ob_get_clean();
+}
+add_shortcode("tutlayt_shortcode", "tutlayt_shortkode");

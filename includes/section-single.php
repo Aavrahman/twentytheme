@@ -1,11 +1,8 @@
-    <main>
-        <div class="page-wrap">
-            <div class="container">
+            <article>
 
                 <h3>Here is the section.single.php</h3>
 
 
-                <article>
                 <?php
                 if (have_posts()):
                     while (have_posts()):
@@ -16,14 +13,6 @@
                     <h1> <?php the_title(); ?> </h1>
 
 
-
-                    <section>
-                            <?php
-                            echo get_the_date('d/m/Y h:i:s');
-                            ?>
-                    </section>
-
-
                     <article class="card-body d-flex align-item-center justify-content-center row">
                         <section class="col-12 col-md-6 col-lg-6  d-flex align-items-center justify-content-center">
                         <?php
@@ -31,7 +20,7 @@
                             <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>" class="img-fluid m-1 img-thumbnail" />
                         <?php
                         else:
-                            echo ("No images for thos post !");
+                            echo ("<H2>No images for thos post !</h2>");
                         endif;
                         ?>
                         </section>
@@ -66,8 +55,6 @@
                                     echo $tag->name;
                                 ?>
                                 </a>
-
-
                     <?php
                             endforeach;
                         else:
@@ -116,6 +103,4 @@
                 </article>
 
 
-            </div>
-        </div>
-    </main>
+            </article>

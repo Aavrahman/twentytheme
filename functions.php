@@ -122,7 +122,7 @@ function tutlayt_post_type()
 {
     $args = array(
         'labels' => array(
-            'name' => 'Tutlayin',
+            'name' => 'Tutlayt PostType',
             'singular_name' => 'Tutlayt',
             'view_items' => "Wali tutlayin",
             'view_item' => "Wali tutlayt",
@@ -145,7 +145,7 @@ function tutlayt_taxonomy()
 {
     $args = array(
         'labels' => array(
-            'name' => 'Timazighin',
+            'name' => 'Timazighin Taxo',
             'singular_name' => 'Tamazight',
         ),
         'public' => true,
@@ -196,8 +196,9 @@ function display_image($atts, $content = null)
 add_shortcode('say_azul', 'display_image');
 
 // Second shortcode: SHortcode importé
-function tutlayt_shortkode() {
+function tutlayt_shortkode($atts, $content=null) {
     ob_start();
+    set_query_var('attributes', $atts);
     get_template_part('includes/tutlayin', 'ugafa');
     return ob_get_clean();
 }

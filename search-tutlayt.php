@@ -3,21 +3,23 @@
  Template Name: Search Tutlayt
  */
 
+
 $some_search = count($_GET);
+
+$b = true;
+$c = $_GET;
+foreach ($c as $k => $v):
+    if (empty($v)):
+        $b = false;
+    endif;
+endforeach;
+
 
 $brands = get_terms(array(
     'taxonomy' => 'timazighin',
     'hide_empty' => false, //can be 1, '1' too
     // ... etc
 ));
-
-$b = true;
-$c = $_GET;
-foreach ($c as $k => $v) {
-    if (empty($v)) {
-        $b = false;
-    }
-}
 ?>
 
 
@@ -29,6 +31,7 @@ get_header();
 <main>
     <section class="page-wrap">
         <div class="container">
+
 
 
             <div class="card">
@@ -54,6 +57,45 @@ get_header();
                             </select>
                         </div>
 
+
+                        <div class="form-group row">
+                            <div class="col-lg-6">
+                                <label>Seg Sekulo:</label>
+                                <select name="from_century" class="form-control">
+                                    <option vlaue=""></option>
+                                    <?php for ($i = 0; $i <= 19; $i += 1): ?>
+                                        <option <?php if (isset($_GET['from_century']) && ($_GET['from_century'] == $i)): ?>
+                                            selected
+                                            <?php endif; ?>
+                                            value="<?php echo number_format($i); ?>">
+                                            <?php echo  "Seg " . $i; ?>
+                                        </option>
+                                    <?php endfor; ?>
+                                </select>
+                            </div>
+                            <div class="col-lg-6">
+                                <label>Ar sekulo:</label>
+                                <select name="to_century" class="form-control">
+                                    <option vlaue=""></option>
+                                    <?php for ($i = 1; $i <= 20; $i += 1): ?>
+                                        <option <?php if (isset($_GET['to_century']) && ($_GET['to_century'] == $i)): ?>
+                                            selected
+                                            <?php endif; ?>
+                                            value="<?php echo number_format($i); ?>">
+                                            <?php echo "Ar " . $i; ?>
+                                        </option>
+                                    <?php endfor; ?>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="author"> Amaray </label>
+                            <input type="text" id="author" name="author" placeholder="Amaray" class="form-control"
+                                value="<?php echo isset($_GET['author']) ? $_GET['author'] : ''; ?>">
+                        </div>
+
                         <button type="submit" class="btn btn-success btn-lg btn-block">Huf</button>
 
                     </form>
@@ -61,45 +103,88 @@ get_header();
             </div>
 
             <?php   // Query the Data Base
+
+            $amaray = null;
+            if (isset($_GET['author'])) {
+                if (!empty($_GET['author'])) {
+                    $amaray = number_format($_GET['author']);
+                }
+            }
+
+            // Paginate the results
+            $paged = (get_query_var('page')) ? get_query_var('paged') : 1;
+
             $args = array(
                 'post_type' => 'tutlayt',
                 'posts_per_page' => 10,
+                'orderby' => 'ID',
+                'order' => 'DESC',
+                'author' => $amaray,
                 'tax_query' => [],
                 'meta_query' => [
                     'relation' => 'AND',
                 ],
+                'paged' => $paged,
             );
 
             if (isset($_GET['keyword'])) {
                 if (!empty($_GET['keyword'])) {
-                    $args['s'] = sanitize_text_field( $_GET['keyword'] );
+                    $args['s'] = sanitize_text_field($_GET['keyword']);
+                    //    $args['s'] = 'Amacahu';
                 }
             }
 
-            if(isset($brand)) {
-                if(!empty($_GET['brand'])) {
+            if (isset($brand)) {
+                if (!empty($_GET['brand'])) {
                     $args['tax_query'][] = [
                         'taxonomy' => 'timazighin',
                         'field' => 'slug',
-                        'terms' => array( sanitize_text_field( $_GET['brand']) ),
+                        'terms' => array(sanitize_text_field($_GET['brand'])),
                     ];
                 }
             }
 
+            if (isset($_GET['from_century'])):
+                if (!empty($_GET['from_century'])):
+                    $args['meta_query'][] = array(
+                        'key' => 'age',
+                        'value' => sanitize_text_field($_GET['from_century']),
+                        'type' => 'numeric',
+                        'compare' => '>=',
+                    );
+                endif;
+            endif;
 
-            // MAKING THE query IF 
-            if ($b):
+            if (isset($_GET['to_century'])):
+                if (!empty($_GET['to_century'])):
+                    $args['meta_query'][] = array(
+                        'key' => 'age',
+                        'value' => sanitize_text_field($_GET['to_century']),
+                        //    'type' => 'numeric',
+                        'compare' => '<=',
+                    );
+                endif;
+            endif;
+
+
+
+            if ($b):            // SUBMIT query IF ONLY THE TWO FILEDS ARE NOT EMPTY
                 $query = new WP_Query($args);
             else:
                 echo '<h2 class="text-center bg-danger rounded text-light"> Pas de Recherche !</h2>';
             endif;
+
+
 
             if ($b):
                 if ($query->have_posts()):
                     while ($query->have_posts()):
                         $query->the_post();
             ?>
-                        <h2> <?php the_title(); ?> </h2>
+
+                        <a href="<?php the_permalink() ?>">
+                            <h2> <?php echo get_the_id() . " : " . get_the_title(); ?></h2>
+                        </a>
 
                         <div class="card">
                             <div class="card-body">
@@ -114,18 +199,20 @@ get_header();
 
             <?php
                     endwhile;
+
+                    wp_reset_postdata();
+
                 else:
                     echo '<h2 class="text-center bg-danger rounded text-light"> Pas de posts !</h2>';
                 endif;
             else:
-                echo '<h2 class="text-center bg-danger rounded text-light"> Pas de résultats !</h2>';
+                echo '<h2 class="text-center bg-danger rounded text-light"> Il faut remplir les deux champs !</h2>';
             endif;
             ?>
 
 
 
-            <pre><?php // print_r($query); 
-                    ?></pre>
+            <pre><?php // print_r($query); ?></pre>
 
 
             <div class="pagination">

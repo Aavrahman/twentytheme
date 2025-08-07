@@ -20,7 +20,7 @@
                             <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>" class="img-fluid m-1 img-thumbnail" />
                         <?php
                         else:
-                            echo ("<H2>No images for thos post !</h2>");
+                            echo ("<h2>No images for thos post !</h2>");
                         endif;
                         ?>
                         </section>

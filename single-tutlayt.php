@@ -17,7 +17,6 @@ get_header();
                 <?php wp_link_pages(); ?>
             </div>
 
-
             <div class="col-3 d-flex align-items-center bg-warning bg-opacity-10 ">
                 <div class="side_bar">
                 <?php           // Sidebar

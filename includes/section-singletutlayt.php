@@ -1,4 +1,4 @@
-<h3>Here is the section.singletutlayt.php</h3>
+<h3>Here is the section.singletutlayt.php; called by 'single-tutlayt.php</h3>
 
 
     <?php
